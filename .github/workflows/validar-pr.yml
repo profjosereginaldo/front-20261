@@ -1,0 +1,50 @@
+name: Validar Sintaxe (JS)
+
+on:
+  pull_request:
+    branches: [ develop ]
+
+jobs:
+  check-vanilla:
+    name: Validar Projeto Vanilla
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: 'npm'
+          cache-dependency-path: './praticas/aluno-online-vanilla/package-lock.json'
+
+      - name: Instalar Dependências
+        working-directory: ./praticas/aluno-online-vanilla
+        run: npm install
+
+      - name: Executar Linters (HTML, CSS, JS)
+        working-directory: ./praticas/aluno-online-vanilla
+        run: npm run lint
+  check-react:
+    name: Validar Projeto React
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: 'npm'
+          cache-dependency-path: './praticas/aluno-online-react/package-lock.json'
+
+      - name: Instalar Dependências
+        working-directory: ./praticas/aluno-online-react
+        run: npm install
+
+      - name: Executar Lint React (ESLint)
+        working-directory: ./praticas/aluno-online-react
+        run: npm run lint

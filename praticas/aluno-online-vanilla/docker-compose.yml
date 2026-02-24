@@ -1,0 +1,12 @@
+services:
+  app:
+    image: node:24
+    container_name: aluno-online-vanilla
+    working_dir: /app
+    volumes:
+      - ./:/app
+    ports:
+      - "4173:4173"
+      - "5173:5173"
+    tty: true
+    stdin_open: true
