@@ -5,15 +5,16 @@
 }
 
 :root {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
-
-  --cor-primaria: #8f207b;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  --cor-primaria: #659856;
+  --cor-secundaria: #556889;
 }
 
 body {
   display: flex;
+  flex-direction: column;
   height: 100vh;
 }
 
@@ -22,51 +23,68 @@ main {
   flex: 1;
   flex-direction: column;
   justify-content: center;
-  padding: 0 1rem; /* 1 rem = 16 => font-size root */
+  padding: 0 16px;
 }
 
-main > img {
-  height: 8rem;
-  width: 8rem;
-  margin: 0 auto;
+img {
+  height: 128px;
+  width: 128px;
+  margin: 16px auto;
 }
 
-main > h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
+h1 {
   text-align: center;
+  margin-bottom: 24px;
 }
 
-main > input[type="number"],
-input[type="password"] {
-  border: 1px solid #ccc;
-  border-radius: 0.5rem;
-  margin-bottom: 1rem;
+label {
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+input {
+  line-height: 1.6;
+  padding: 0.5rem; /* 1rem 16pt => 8pt */
+  border: 1px solid var(--cor-primaria);
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+button {
   padding: 0.5rem;
-}
-
-main > button {
-  background-color: var(--cor-primaria);
+  line-height: 1.6;
   border: none;
-  border-radius: 0.5rem;
-  color: white;
-  padding: 0.75rem;
+  border-radius: 8px;
+  background-color: var(--cor-primaria);
 }
 
-/* responsividade para tablet */
-@media (min-width: 375px) {
-    
+header {
+  display: flex;
+  align-items: center;
+  height: 56px;
+  padding: 0.5rem;
+  background-color: var(--cor-secundaria);
 }
 
-/* responsividade para desktop */
-@media (min-width: 768px) {
-    main {
-        border: 1px solid var(--cor-primaria);
-        margin: 3rem auto;
-        max-width: 400px;
-    }
+header > h1 {
+   margin: 0;    
+}
 
-    main > button {
-        margin: 0 3rem;
-    }
+header > img {
+    height: 32px;
+    width: 32px;
+}
+
+@media (width >= 768px) {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  main {
+    border: 1px solid var(--cor-primaria);
+    margin: 50px 0;
+    width: 350px;
+  }
 }
