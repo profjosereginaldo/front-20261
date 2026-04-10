@@ -1,17 +1,15 @@
-import Sidebar from "../components/Sidebar";
-import Topbar from "../components/Topbar";
+import Tabela from "../components/Tabela";
+import Layout from "./Layout";
 
 function Requerimentos() {
-    return <>
-        <Sidebar />
-        <main>
-            <Topbar />
-            <h2>Meus Requerimentos</h2>
-            <section>
-            </section>
-        </main>
-    </>
+  return (
+    <Layout 
+      titulo="Meus Requerimentos"
+      subtitulo="Faça solicitações online para a secretaria"
+    >
+        <Tabela />
+    </Layout>
+  );
 }
 
 export default Requerimentos;
-

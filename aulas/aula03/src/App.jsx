@@ -5,7 +5,7 @@ import Notas from "./pages/Notas";
 import Requerimentos from "./pages/Requerimentos";
 
 function App() {
-  const pagina = 1;
+  const pagina = 4;
   return (
     <>
       {pagina == 1 && <Dashboard />}
