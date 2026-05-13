@@ -1,15 +1,24 @@
-import { Outlet } from "react-router";
+import { Navigate, Outlet } from "react-router";
 import Menu from "../components/Menu";
+import { useAuthContext } from "../contexts/AuthContext";
 
 function Layout() {
+  const { logado } = useAuthContext();
+
   return (
     <>
-      <aside>
-        <Menu />
-      </aside>
-      <main>
-        <Outlet />
-      </main>
+      {logado ? (
+        <>
+          <aside>
+            <Menu />
+          </aside>
+          <main>
+            <Outlet />
+          </main>
+        </>
+      ) : (
+        <Navigate to="/login" />
+      )}
     </>
   );
 }
